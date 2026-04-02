@@ -4,19 +4,19 @@ This guide helps AI agents choose the best language for a new CLI project. Read 
 
 ## Quick Decision Matrix
 
-| Factor | Go | Python | Rust |
-|---|---|---|---|
-| Cold start time | Fast | Slow (interpreter) | Instant |
-| Binary size | Small (~10MB) | N/A (needs Python) | Tiny (~2MB with strip) |
-| Distribution | Single binary | Needs `pip`/Python | Single binary |
-| Rapid prototyping | Good | **Best** | Slowest |
-| Performance | Great | Adequate | **Best** |
-| Error handling | Explicit (`error`) | Exceptions | `Result<T, E>` |
-| Concurrency | Goroutines (easy) | asyncio (awkward) | async/await (explicit) |
-| Ecosystem for CLIs | Cobra (excellent) | Click (excellent) | Clap (excellent) |
-| Learning curve | Low | Low | Medium-High |
-| Type safety | Strong (with generics) | Optional (mypy) | Strict (borrow checker) |
-| Memory safety | GC | GC | Ownership (no GC) |
+| Factor | Go | Python | Rust | TypeScript |
+|---|---|---|---|---|
+| Cold start time | Fast | Slow (interpreter) | Instant | Fast (V8) |
+| Binary size | Small (~10MB) | N/A (needs Python) | Tiny (~2MB) | N/A (needs Node) |
+| Distribution | Single binary | Needs `pip`/Python | Single binary | Needs `npm`/Node |
+| Rapid prototyping | Good | **Best** | Slowest | Good |
+| Performance | Great | Adequate | **Best** | Good |
+| Error handling | Explicit (`error`) | Exceptions | `Result<T, E>` | Exceptions |
+| Concurrency | Goroutines (easy) | asyncio (awkward) | async/await | async/await (easy) |
+| Ecosystem for CLIs | Cobra (excellent) | Click (excellent) | Clap (excellent) | Commander (great) |
+| Learning curve | Low | Low | Medium-High | Low |
+| Type safety | Strong (generics) | Optional (mypy) | Strict (borrow) | Strict (structural) |
+| Memory safety | GC | GC | Ownership | GC |
 
 ## When to Choose Go
 
@@ -87,6 +87,31 @@ This guide helps AI agents choose the best language for a new CLI project. Read 
 - You need rapid prototyping and frequent pivots
 - The project is a quick prototype or throwaway tool
 
+## When to Choose TypeScript
+
+**Choose TypeScript when:**
+- The team is primarily JavaScript/TypeScript developers
+- The CLI interacts with web APIs, npm packages, or Node.js ecosystem
+- You want strong typing without learning a new language
+- The CLI ships alongside a JavaScript/TypeScript library
+- You need the largest package ecosystem (npm)
+- The CLI is a DevOps tool used in Node.js-heavy environments
+
+**TypeScript is ideal for:**
+- API wrappers and webhook handlers
+- Build tools and dev servers
+- CLIs that ship alongside npm packages
+- Tools for the JavaScript/Node.js ecosystem
+- Rapid prototyping with strong typing
+- Teams transitioning from JavaScript
+
+**Avoid TypeScript when:**
+- You need a single distributable binary (without extra tooling)
+- Cold start time is critical (Node.js has ~50ms overhead)
+- Users can't be expected to have Node.js installed
+- Performance-critical computation is the core task
+- Memory efficiency is important
+
 ## Decision Flowchart
 
 ```
@@ -106,6 +131,10 @@ Is the team already proficient in one language?
   YES → Use that language
   NO ↓
 
+Does it need to integrate with npm/Node.js/web ecosystem?
+  YES → TypeScript
+  NO ↓
+
 Does it need to integrate with Python/ML/data ecosystem?
   YES → Python
   NO ↓
@@ -119,18 +148,18 @@ Default → Go (best balance of productivity and performance)
 
 ## Technology Stack Comparison
 
-| Component | Go | Python | Rust |
-|---|---|---|---|
-| CLI framework | Cobra | Click | Clap |
-| Config format | YAML (gopkg.in/yaml.v3) | YAML (PyYAML) | YAML (serde_yaml) |
-| Testing | `go test` | pytest | `cargo test` |
-| Linting | golangci-lint | ruff | clippy |
-| Type checking | Built-in | mypy | Built-in (strict) |
-| Build system | `go build` | `python -m build` | `cargo build` |
-| Package registry | pkg.go.dev | PyPI | crates.io |
-| Cross-compilation | `GOOS`/`GOARCH` | PyInstaller | `cargo-dist` |
-| Version injection | ldflags | `__version__` variable | `CARGO_PKG_VERSION` |
-| Config dir | `~/.config/<name>/` | `~/.config/<name>/` | `~/.config/<name>/` |
+| Component | Go | Python | Rust | TypeScript |
+|---|---|---|---|---|
+| CLI framework | Cobra | Click | Clap | Commander |
+| Config format | YAML (gopkg.in/yaml.v3) | YAML (PyYAML) | YAML (serde_yaml) | YAML (js-yaml) |
+| Testing | `go test` | pytest | `cargo test` | Vitest |
+| Linting | golangci-lint | ruff | clippy | Biome |
+| Type checking | Built-in | mypy | Built-in (strict) | `tsc` (strict) |
+| Build system | `go build` | `python -m build` | `cargo build` | `tsc` |
+| Package registry | pkg.go.dev | PyPI | crates.io | npm |
+| Cross-compilation | `GOOS`/`GOARCH` | PyInstaller | `cargo-dist` | `pkg`/`nexe` |
+| Version injection | ldflags | `__version__` variable | `CARGO_PKG_VERSION` | `package.json` version |
+| Config dir | `~/.config/<name>/` | `~/.config/<name>/` | `~/.config/<name>/` | `~/.config/<name>/` |
 
 ## Agent Prompt Template
 

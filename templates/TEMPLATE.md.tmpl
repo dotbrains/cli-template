@@ -108,6 +108,22 @@ make test
 | `Makefile` | Standard targets: build, test, lint, install, clean, cover |
 | `.github/workflows/ci.yml` | CI: test (ubuntu+macos matrix), lint (clippy+fmt), build |
 | `.github/workflows/release.yml` | Release: test+lint+build → cargo-dist on tag push |{{/rust}}
+{{#typescript}}### TypeScript-specific
+
+| File/Dir | Purpose |
+|---|---|
+| `src/cli.ts` | Commander CLI entry point + subcommand registration |
+| `src/config.ts` | YAML config management (loadConfig, saveConfig, defaultConfig) |
+| `src/executor.ts` | `CommandExecutor` interface + `RealExecutor` + `MockExecutor` |
+| `src/index.ts` | Package exports |
+| `tests/cli.test.ts` | Command-level tests |
+| `tests/config.test.ts` | Config tests |
+| `tests/executor.test.ts` | Executor tests |
+| `package.json` | Dependencies, scripts, bin entry |
+| `tsconfig.json` | TypeScript compiler config |
+| `Makefile` | Standard targets: build, test, lint, install, clean, typecheck |
+| `.github/workflows/ci.yml` | CI: test (ubuntu+macos × node 20-22 matrix), lint, build |
+| `.github/workflows/release.yml` | Release: test+lint → npm publish + GitHub release on tag push |{{/typescript}}
 
 ### Customizing the website
 
@@ -184,6 +200,22 @@ Every project needs an `og-image.svg` (1200×630px) for social sharing and the R
 - Unit tests in `#[cfg(test)] mod tests` blocks.
 - Integration tests in `tests/` directory.
 - Target 80%+ test coverage.{{/rust}}
+{{#typescript}}### Code patterns
+
+- **One subcommand per `.command()` chain** in `cli.ts`.
+- **`tests/*.test.ts` files** alongside every source module.
+- **`src/` for all domain logic** — `cli.ts` should be thin wrappers.
+- **Use `CommandExecutor` interface** for anything that shells out.
+- **Use `loadConfig()`** to read config — always fall back to `defaultConfig()`.
+- **Strict TypeScript** — enable `strict: true` in tsconfig.
+
+### Testing patterns
+
+- Use `tmpdir()` for temporary directories.
+- Use `process.env` overrides to isolate config paths.
+- Use `execFileSync` with `tsx` for integration-style CLI tests.
+- Use `MockExecutor` for testing code that shells out.
+- Target 80%+ test coverage.{{/typescript}}
 
 ### Documentation patterns
 
@@ -206,6 +238,10 @@ Every project needs an `og-image.svg` (1200×630px) for social sharing and the R
 {{#rust}}- Version from `CARGO_PKG_VERSION` with optional `VERSION` env override.
 - cargo-dist for cross-platform builds (darwin+linux × amd64+arm64).
 - GitHub Releases with tar.gz archives.{{/rust}}
+{{#typescript}}- Version defined in `package.json` `version` field.
+- GitHub Actions builds and publishes to npm on tag push.
+- npm provenance enabled for supply chain security.
+- GitHub Releases with `.tgz` tarballs.{{/typescript}}
 
 ## Checklist for New Projects
 
@@ -224,6 +260,10 @@ Every project needs an `og-image.svg` (1200×630px) for social sharing and the R
 - [ ] Added project-specific config fields to `src/config.rs`
 - [ ] Added project-specific subcommands to `src/cmd/`
 - [ ] Added domain logic modules under `src/`{{/rust}}
+{{#typescript}}- [ ] Updated `package.json` metadata
+- [ ] Added project-specific config fields to `src/config.ts`
+- [ ] Added project-specific commands in `src/cli.ts`
+- [ ] Added domain logic modules under `src/`{{/typescript}}
 - [ ] Tests pass with `make test`
 - [ ] Lint passes with `make lint`
 - [ ] Updated README.md with real Quick Start examples

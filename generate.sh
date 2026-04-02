@@ -6,7 +6,7 @@ export LC_ALL=C
 # Scaffolds a new CLI project from the monorepo template.
 #
 # Usage:
-#   ./generate.sh --lang <go|python|rust> --name <project-name> \
+#   ./generate.sh --lang <go|python|rust|typescript> --name <project-name> \
 #     --desc "<one-line>" --desc-long "<longer>" [--output <dir>]
 #
 # Example:
@@ -28,10 +28,10 @@ OUTPUT=""
 # ─── Parse Arguments ───────────────────────────────────────────────────────────
 usage() {
     cat <<EOF
-Usage: $(basename "$0") --lang <go|python|rust> --name <name> --desc "<desc>" --desc-long "<long desc>" [--output <dir>]
+Usage: $(basename "$0") --lang <go|python|rust|typescript> --name <name> --desc "<desc>" --desc-long "<long desc>" [--output <dir>]
 
 Options:
-  --lang        Language: go, python, or rust
+  --lang        Language: go, python, rust, or typescript
   --name        Project name (lowercase, hyphen-separated)
   --desc        One-line description
   --desc-long   Longer description (1-2 sentences)
@@ -54,13 +54,13 @@ while [[ $# -gt 0 ]]; do
 done
 
 # ─── Validate ──────────────────────────────────────────────────────────────────
-[[ -z "$LANG" ]] && echo "Error: --lang is required (go, python, or rust)" && exit 1
+[[ -z "$LANG" ]] && echo "Error: --lang is required (go, python, rust, or typescript)" && exit 1
 [[ -z "$NAME" ]] && echo "Error: --name is required" && exit 1
 [[ -z "$DESC" ]] && echo "Error: --desc is required" && exit 1
 [[ -z "$DESC_LONG" ]] && echo "Error: --desc-long is required" && exit 1
 
-if [[ "$LANG" != "go" && "$LANG" != "python" && "$LANG" != "rust" ]]; then
-    echo "Error: --lang must be go, python, or rust (got: $LANG)"
+if [[ "$LANG" != "go" && "$LANG" != "python" && "$LANG" != "rust" && "$LANG" != "typescript" ]]; then
+    echo "Error: --lang must be go, python, rust, or typescript (got: $LANG)"
     exit 1
 fi
 
@@ -89,6 +89,7 @@ copy_tree() {
 #   {{#go}}...{{/go}}       — included only when lang=go
 #   {{#python}}...{{/python}} — included only when lang=python
 #   {{#rust}}...{{/rust}}   — included only when lang=rust
+#   {{#typescript}}...{{/typescript}} — included only when lang=typescript
 #
 # The render process:
 #   1. Extract content of the chosen language's blocks
@@ -102,7 +103,7 @@ render_template() {
     content=$(cat "$template")
 
     # Step 1: For each OTHER language, remove their entire blocks.
-    local all_langs=("go" "python" "rust")
+    local all_langs=("go" "python" "rust" "typescript")
     for lang in "${all_langs[@]}"; do
         if [[ "$lang" != "$LANG" ]]; then
             # Remove {{#lang}}...{{/lang}} blocks (including multiline)

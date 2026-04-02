@@ -6,8 +6,9 @@
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#00ADD8"/>
-      <stop offset="33%" stop-color="#3776AB"/>
-      <stop offset="66%" stop-color="#DEA584"/>
+      <stop offset="25%" stop-color="#3776AB"/>
+      <stop offset="50%" stop-color="#DEA584"/>
+      <stop offset="75%" stop-color="#3178C6"/>
       <stop offset="100%" stop-color="#00ADD8"/>
     </linearGradient>
   </defs>
@@ -28,26 +29,30 @@
   <line x1="0" y1="315" x2="1200" y2="315" stroke="white" stroke-opacity="0.03"/>
   <line x1="0" y1="472" x2="1200" y2="472" stroke="white" stroke-opacity="0.03"/>
 
-  <!-- Logo: three overlapping language blocks -->
-  <g transform="translate(80, 160)">
+  <!-- Logo: four overlapping language blocks -->
+  <g transform="translate(80, 155)">
     <!-- Go block (back) -->
-    <rect x="0" y="24" width="72" height="72" rx="14" fill="#00ADD8" fill-opacity="0.2" stroke="#00ADD8" stroke-width="1.5"/>
-    <text x="36" y="67" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="22" fill="#00ADD8">Go</text>
+    <rect x="0" y="32" width="64" height="64" rx="12" fill="#00ADD8" fill-opacity="0.2" stroke="#00ADD8" stroke-width="1.5"/>
+    <text x="32" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="20" fill="#00ADD8">Go</text>
 
-    <!-- Python block (middle) -->
-    <rect x="24" y="8" width="72" height="72" rx="14" fill="#3776AB" fill-opacity="0.2" stroke="#3776AB" stroke-width="1.5"/>
-    <text x="60" y="51" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#3776AB">Py</text>
+    <!-- Python block -->
+    <rect x="20" y="16" width="64" height="64" rx="12" fill="#3776AB" fill-opacity="0.2" stroke="#3776AB" stroke-width="1.5"/>
+    <text x="52" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#3776AB">Py</text>
 
-    <!-- Rust block (front) -->
-    <rect x="48" y="-8" width="72" height="72" rx="14" fill="#DEA584" fill-opacity="0.2" stroke="#DEA584" stroke-width="1.5"/>
-    <text x="84" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#DEA584">Rs</text>
+    <!-- Rust block -->
+    <rect x="40" y="0" width="64" height="64" rx="12" fill="#DEA584" fill-opacity="0.2" stroke="#DEA584" stroke-width="1.5"/>
+    <text x="72" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#DEA584">Rs</text>
+
+    <!-- TypeScript block (front) -->
+    <rect x="60" y="-16" width="64" height="64" rx="12" fill="#3178C6" fill-opacity="0.2" stroke="#3178C6" stroke-width="1.5"/>
+    <text x="92" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="14" fill="#3178C6">TS</text>
   </g>
 
   <!-- Main heading -->
   <text x="80" y="330" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="white">cli-template</text>
 
   <!-- Subtitle -->
-  <text x="82" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">One repo, three languages.</text>
+  <text x="82" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">One repo, four languages.</text>
 
   <!-- Language badges -->
   <g transform="translate(80, 430)">
@@ -62,6 +67,10 @@
     <!-- Rust -->
     <rect x="240" y="0" width="90" height="36" rx="8" fill="#DEA584" fill-opacity="0.15" stroke="#DEA584" stroke-width="1.5"/>
     <text x="285" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="16" fill="#DEA584">Rust</text>
+
+    <!-- TypeScript -->
+    <rect x="350" y="0" width="130" height="36" rx="8" fill="#3178C6" fill-opacity="0.15" stroke="#3178C6" stroke-width="1.5"/>
+    <text x="415" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="16" fill="#3178C6">TypeScript</text>
   </g>
 
   <!-- Terminal panel (vertically centered with left content) -->

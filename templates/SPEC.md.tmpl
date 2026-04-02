@@ -12,6 +12,8 @@
 ![Click](https://img.shields.io/badge/-Click-3776AB?style=flat-square&logo=python&logoColor=white){{/python}}
 {{#rust}}![Rust](https://img.shields.io/badge/-Rust-DEA584?style=flat-square&logo=rust&logoColor=white)
 ![Clap](https://img.shields.io/badge/-Clap-DEA584?style=flat-square&logo=rust&logoColor=white){{/rust}}
+{{#typescript}}![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Commander](https://img.shields.io/badge/-Commander-3178C6?style=flat-square&logo=typescript&logoColor=white){{/typescript}}
 ![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
@@ -141,6 +143,30 @@ tests/
 2. Add `mod my_module;` to `src/main.rs`.
 3. Include `#[cfg(test)] mod tests { ... }` at the bottom of the file.
 4. Use the `CommandExecutor` trait for any shell-out logic.{{/rust}}
+{{#typescript}}```
+src/
+  cli.ts                           Commander CLI entry point + subcommand registration
+  config.ts                        YAML config: loadConfig, saveConfig, defaults
+  executor.ts                      CommandExecutor interface for testability
+  index.ts                         Package exports
+tests/
+  cli.test.ts                      Command-level tests
+  config.test.ts                   Config tests
+  executor.test.ts                 Executor tests
+```
+
+### Adding new subcommands
+
+1. Add a new `.command()` chain in `cli.ts`.
+2. Implement the handler inline or import from a new module.
+3. Add tests in `tests/cli.test.ts`.
+
+### Adding internal modules
+
+1. Create a new file under `src/` (e.g., `src/my_module.ts`).
+2. Export from `src/index.ts`.
+3. Include `*.test.ts` files in `tests/`.
+4. Use the `CommandExecutor` interface for any shell-out logic.{{/typescript}}
 
 ## Testing
 
@@ -167,11 +193,19 @@ make cover
 
 # Lint
 make lint{{/rust}}
+{{#typescript}}make test
+
+# Lint
+make lint
+
+# Type check
+make typecheck{{/typescript}}
 ```
 
 {{#go}}Tests use `t.TempDir()` and `t.Setenv()` for isolation. The `exec.MockExecutor` pattern is used to test code that shells out to external commands.{{/go}}
 {{#python}}Tests use `tmp_path` and `monkeypatch` for isolation. The `MockExecutor` pattern is used to test code that shells out to external commands.{{/python}}
 {{#rust}}Tests use `tempfile::TempDir` for isolation and `std::env::set_var` for config path overrides. The `CommandExecutor` trait with mock implementations is used to test code that shells out to external commands.{{/rust}}
+{{#typescript}}Tests use `tmpdir()` and `process.env` overrides for isolation. The `MockExecutor` class is used to test code that shells out to external commands.{{/typescript}}
 
 ## Release
 
@@ -193,3 +227,6 @@ This triggers the release workflow which:
 5. Updates the Homebrew tap at `dotbrains/homebrew-tap`.{{/python}}
 {{#rust}}2. Builds via cargo-dist for darwin/linux × amd64/arm64.
 3. Publishes a GitHub release with binaries.{{/rust}}
+{{#typescript}}2. Builds the TypeScript package.
+3. Publishes to npm.
+4. Creates a GitHub release with the package tarball.{{/typescript}}

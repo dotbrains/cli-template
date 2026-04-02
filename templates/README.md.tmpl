@@ -12,6 +12,8 @@
 ![Click](https://img.shields.io/badge/-Click-3776AB?style=flat-square&logo=python&logoColor=white){{/python}}
 {{#rust}}![Rust](https://img.shields.io/badge/-Rust-DEA584?style=flat-square&logo=rust&logoColor=white)
 ![Clap](https://img.shields.io/badge/-Clap-DEA584?style=flat-square&logo=rust&logoColor=white){{/rust}}
+{{#typescript}}![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Commander](https://img.shields.io/badge/-Commander-3178C6?style=flat-square&logo=typescript&logoColor=white){{/typescript}}
 ![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
@@ -24,6 +26,7 @@ __PROJECT_DESCRIPTION_LONG__
 {{#go}}go install github.com/dotbrains/__PROJECT_NAME__@latest{{/go}}
 {{#python}}pip install __PROJECT_NAME__{{/python}}
 {{#rust}}cargo install __PROJECT_NAME__{{/rust}}
+{{#typescript}}npm install -g __PROJECT_NAME__{{/typescript}}
 
 # Show version
 __PROJECT_NAME__ --version
@@ -57,6 +60,11 @@ pip install __PROJECT_NAME__
 ```sh
 cargo install __PROJECT_NAME__
 ```{{/rust}}
+{{#typescript}}### Via `npm`
+
+```sh
+npm install -g __PROJECT_NAME__
+```{{/typescript}}
 
 ### Via Homebrew
 
@@ -74,6 +82,8 @@ tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin{{/go}}
 pip install /tmp/__PROJECT_NAME__-*-py3-none-any.whl{{/python}}
 {{#rust}}gh release download --repo dotbrains/__PROJECT_NAME__ --pattern '__PROJECT_NAME___darwin_arm64.tar.gz' --dir /tmp
 tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin{{/rust}}
+{{#typescript}}gh release download --repo dotbrains/__PROJECT_NAME__ --pattern '__PROJECT_NAME__-*.tgz' --dir /tmp
+npm install -g /tmp/__PROJECT_NAME__-*.tgz{{/typescript}}
 ```
 
 ### From source
@@ -107,6 +117,7 @@ See [SPEC.md](SPEC.md) for the full config format.
 - {{#go}}**[Go](https://go.dev/)** >= 1.24{{/go}}
 {{#python}}**[Python](https://python.org/)** >= 3.10{{/python}}
 {{#rust}}**[Rust](https://www.rust-lang.org/)** >= 1.85 (stable){{/rust}}
+{{#typescript}}**[Node.js](https://nodejs.org/)** >= 20{{/typescript}}
 
 ## License
 

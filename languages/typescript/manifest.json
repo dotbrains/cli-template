@@ -1,0 +1,21 @@
+{
+  "language": "typescript",
+  "display_name": "TypeScript",
+  "min_version": "5.4",
+  "framework": "Commander",
+  "framework_url": "https://github.com/tj/commander.js",
+  "install_cmd": "npm install -g __PROJECT_NAME__",
+  "build_cmd": "npm run build",
+  "test_cmd": "vitest run --coverage",
+  "lint_cmd": "biome check src/ tests/",
+  "clean_cmd": "rm -rf node_modules dist coverage",
+  "deps_url": "https://nodejs.org/",
+  "badges": ["TypeScript", "Commander"],
+  "badge_color": "3178C6",
+  "badge_logo": "typescript",
+  "github_release_pattern": "__PROJECT_NAME__-*.tgz",
+  "github_release_extract": "npm install -g /tmp/__PROJECT_NAME__-*.tgz",
+  "binary_name": "__PROJECT_NAME__",
+  "src_dir": "src",
+  "entry_point": "src/cli.ts"
+}
