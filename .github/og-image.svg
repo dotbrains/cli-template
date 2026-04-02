@@ -28,20 +28,29 @@
   <line x1="0" y1="315" x2="1200" y2="315" stroke="white" stroke-opacity="0.03"/>
   <line x1="0" y1="472" x2="1200" y2="472" stroke="white" stroke-opacity="0.03"/>
 
-  <!-- Logo: stacked brackets icon -->
-  <g transform="translate(80, 70)">
-    <rect width="100" height="100" rx="16" fill="#0f172a" stroke="url(#accent)" stroke-width="2"/>
-    <text x="50" y="68" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="48" fill="url(#accent)">&lt;/&gt;</text>
+  <!-- Logo: three overlapping language blocks -->
+  <g transform="translate(80, 160)">
+    <!-- Go block (back) -->
+    <rect x="0" y="24" width="72" height="72" rx="14" fill="#00ADD8" fill-opacity="0.2" stroke="#00ADD8" stroke-width="1.5"/>
+    <text x="36" y="67" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="22" fill="#00ADD8">Go</text>
+
+    <!-- Python block (middle) -->
+    <rect x="24" y="8" width="72" height="72" rx="14" fill="#3776AB" fill-opacity="0.2" stroke="#3776AB" stroke-width="1.5"/>
+    <text x="60" y="51" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#3776AB">Py</text>
+
+    <!-- Rust block (front) -->
+    <rect x="48" y="-8" width="72" height="72" rx="14" fill="#DEA584" fill-opacity="0.2" stroke="#DEA584" stroke-width="1.5"/>
+    <text x="84" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#DEA584">Rs</text>
   </g>
 
   <!-- Main heading -->
-  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="white">cli-template</text>
+  <text x="80" y="330" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="white">cli-template</text>
 
   <!-- Subtitle -->
-  <text x="82" y="295" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">One repo, three languages.</text>
+  <text x="82" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">One repo, three languages.</text>
 
   <!-- Language badges -->
-  <g transform="translate(80, 340)">
+  <g transform="translate(80, 430)">
     <!-- Go -->
     <rect x="0" y="0" width="90" height="36" rx="8" fill="#00ADD8" fill-opacity="0.15" stroke="#00ADD8" stroke-width="1.5"/>
     <text x="45" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="16" fill="#00ADD8">Go</text>
@@ -55,8 +64,8 @@
     <text x="285" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="16" fill="#DEA584">Rust</text>
   </g>
 
-  <!-- Terminal panel -->
-  <g transform="translate(680, 100)">
+  <!-- Terminal panel (vertically centered with left content) -->
+  <g transform="translate(680, 175)">
     <rect width="440" height="280" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 
     <!-- macOS dots -->
