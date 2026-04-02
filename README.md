@@ -7,10 +7,11 @@
 ![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Rust](https://img.shields.io/badge/-Rust-DEA584?style=flat-square&logo=rust&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
-One repo, three languages. Tell an agent what CLI you need — it picks Go, Python, or Rust and scaffolds a production-ready project.
+One repo, four languages. Tell an agent what CLI you need — it picks the best language and scaffolds a production-ready project.
 
 ## Quick Start
 
@@ -27,6 +28,9 @@ cd cli-template
 
 # Scaffold a Rust project
 ./generate.sh --lang rust --name my-tool --desc "My CLI tool" --desc-long "Does something useful."
+
+# Scaffold a TypeScript project
+./generate.sh --lang typescript --name my-tool --desc "My CLI tool" --desc-long "Does something useful."
 
 # Build and test
 cd output/my-tool
@@ -88,17 +92,25 @@ cli-template/
         ├── overlays/
         ├── Cargo.toml
         └── rust-toolchain.toml
+    └── typescript/
+        ├── manifest.json
+        ├── project/
+        │   ├── src/
+        │   └── tests/
+        ├── overlays/
+        ├── package.json
+        └── tsconfig.json
 ```
 
 ## Choosing a Language
 
-| Factor | Go | Python | Rust |
-|---|---|---|---|
-| Cold start | Fast | Slow | Instant |
-| Binary size | ~10MB | Needs Python | ~2MB |
-| Distribution | Single binary | pip | Single binary |
-| Prototyping speed | Good | Best | Slowest |
-| Performance | Great | Adequate | Best |
+| Factor | Go | Python | Rust | TypeScript |
+|---|---|---|---|---|
+| Cold start | Fast | Slow | Instant | Fast |
+| Binary size | ~10MB | Needs Python | ~2MB | Needs Node |
+| Distribution | Single binary | pip | Single binary | npm |
+| Prototyping speed | Good | Best | Slowest | Good |
+| Performance | Great | Adequate | Best | Good |
 
 **Go** — DevOps tools, API wrappers, anything that needs `go install`. Best balance of productivity and performance.
 
@@ -106,13 +118,15 @@ cli-template/
 
 **Rust** — System utilities, file processors, security tools, CI/CD speed-critical CLIs.
 
+**TypeScript** — API wrappers, build tools, CLIs that ship alongside npm packages, teams in the Node.js ecosystem.
+
 See [LANGUAGES.md](LANGUAGES.md) for the full decision guide and flowchart.
 
 ## What Each Project Gets
 
 Every generated project includes:
 
-- **CLI framework** — Cobra (Go), Click (Python), or Clap (Rust)
+- **CLI framework** — Cobra (Go), Click (Python), Clap (Rust), or Commander (TypeScript)
 - **YAML config** — Load/save defaults at `~/.config/<name>/config.yaml`
 - **Command executor** — Abstracted shell execution for testability
 - **Tests** — Unit + integration tests with 80%+ coverage target
