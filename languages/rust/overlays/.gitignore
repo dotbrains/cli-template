@@ -1,0 +1,10 @@
+# Binary
+/target/
+__PROJECT_NAME__
+
+# Coverage
+coverage/
+tarpaulin-report.html
+
+# Rust
+*.rs.bk

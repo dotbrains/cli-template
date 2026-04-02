@@ -1,0 +1,21 @@
+{
+  "language": "rust",
+  "display_name": "Rust",
+  "min_version": "1.85",
+  "framework": "Clap",
+  "framework_url": "https://clap.rs/",
+  "install_cmd": "cargo install __PROJECT_NAME__",
+  "build_cmd": "cargo build --release",
+  "test_cmd": "cargo test",
+  "lint_cmd": "cargo clippy -- -D warnings",
+  "clean_cmd": "cargo clean",
+  "deps_url": "https://www.rust-lang.org/",
+  "badges": ["Rust", "Clap"],
+  "badge_color": "DEA584",
+  "badge_logo": "rust",
+  "github_release_pattern": "__PROJECT_NAME___darwin_arm64.tar.gz",
+  "github_release_extract": "tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin",
+  "binary_name": "__PROJECT_NAME__",
+  "src_dir": "src",
+  "entry_point": "src/main.rs"
+}

@@ -1,0 +1,113 @@
+# __PROJECT_NAME__ — __PROJECT_DESCRIPTION__
+
+![__PROJECT_NAME__](./assets/og-image.svg)
+
+[![CI](https://github.com/dotbrains/__PROJECT_NAME__/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/__PROJECT_NAME__/actions/workflows/ci.yml)
+[![Release](https://github.com/dotbrains/__PROJECT_NAME__/actions/workflows/release.yml/badge.svg)](https://github.com/dotbrains/__PROJECT_NAME__/actions/workflows/release.yml)
+[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
+
+{{#go}}![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+![Cobra](https://img.shields.io/badge/-Cobra-00ADD8?style=flat-square&logo=go&logoColor=white){{/go}}
+{{#python}}![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Click](https://img.shields.io/badge/-Click-3776AB?style=flat-square&logo=python&logoColor=white){{/python}}
+{{#rust}}![Rust](https://img.shields.io/badge/-Rust-DEA584?style=flat-square&logo=rust&logoColor=white)
+![Clap](https://img.shields.io/badge/-Clap-DEA584?style=flat-square&logo=rust&logoColor=white){{/rust}}
+![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+
+__PROJECT_DESCRIPTION_LONG__
+
+## Quick Start
+
+```sh
+# Install
+{{#go}}go install github.com/dotbrains/__PROJECT_NAME__@latest{{/go}}
+{{#python}}pip install __PROJECT_NAME__{{/python}}
+{{#rust}}cargo install __PROJECT_NAME__{{/rust}}
+
+# Show version
+__PROJECT_NAME__ --version
+
+# Initialize config
+__PROJECT_NAME__ config init
+```
+
+## How It Works
+
+<!-- Describe the core workflow of your CLI here. -->
+
+1. Step one
+2. Step two
+3. Step three
+
+## Installation
+
+{{#go}}### Via `go install`
+
+```sh
+go install github.com/dotbrains/__PROJECT_NAME__@latest
+```{{/go}}
+{{#python}}### Via `pip`
+
+```sh
+pip install __PROJECT_NAME__
+```{{/python}}
+{{#rust}}### Via `cargo install`
+
+```sh
+cargo install __PROJECT_NAME__
+```{{/rust}}
+
+### Via Homebrew
+
+```sh
+brew tap dotbrains/tap
+brew install --cask __PROJECT_NAME__
+```
+
+### Via GitHub Release
+
+```sh
+{{#go}}gh release download --repo dotbrains/__PROJECT_NAME__ --pattern '__PROJECT_NAME___darwin_arm64.tar.gz' --dir /tmp
+tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin{{/go}}
+{{#python}}gh release download --repo dotbrains/__PROJECT_NAME__ --pattern '__PROJECT_NAME__-*-py3-none-any.whl' --dir /tmp
+pip install /tmp/__PROJECT_NAME__-*-py3-none-any.whl{{/python}}
+{{#rust}}gh release download --repo dotbrains/__PROJECT_NAME__ --pattern '__PROJECT_NAME___darwin_arm64.tar.gz' --dir /tmp
+tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin{{/rust}}
+```
+
+### From source
+
+```sh
+git clone https://github.com/dotbrains/__PROJECT_NAME__.git
+cd __PROJECT_NAME__
+make install
+```
+
+## Configuration
+
+```sh
+# Create default config
+__PROJECT_NAME__ config init
+
+# Config lives at ~/.config/__PROJECT_NAME__/config.yaml
+```
+
+See [SPEC.md](SPEC.md) for the full config format.
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `__PROJECT_NAME__` | __PROJECT_DESCRIPTION__ |
+| `__PROJECT_NAME__ config init` | Create default config file |
+
+## Dependencies
+
+- {{#go}}**[Go](https://go.dev/)** >= 1.24{{/go}}
+{{#python}}**[Python](https://python.org/)** >= 3.10{{/python}}
+{{#rust}}**[Rust](https://www.rust-lang.org/)** >= 1.85 (stable){{/rust}}
+
+## License
+
+This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.

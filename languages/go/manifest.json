@@ -1,0 +1,21 @@
+{
+  "language": "go",
+  "display_name": "Go",
+  "min_version": "1.24",
+  "framework": "Cobra",
+  "framework_url": "https://github.com/spf13/cobra",
+  "install_cmd": "go install github.com/dotbrains/__PROJECT_NAME__@latest",
+  "build_cmd": "go build -o __PROJECT_NAME__ .",
+  "test_cmd": "go test -race ./...",
+  "lint_cmd": "golangci-lint run",
+  "clean_cmd": "rm -f __PROJECT_NAME__ coverage.out",
+  "deps_url": "https://go.dev/",
+  "badges": ["Go", "Cobra"],
+  "badge_color": "00ADD8",
+  "badge_logo": "go",
+  "github_release_pattern": "__PROJECT_NAME___darwin_arm64.tar.gz",
+  "github_release_extract": "tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin",
+  "binary_name": "__PROJECT_NAME__",
+  "src_dir": ".",
+  "entry_point": "main.go"
+}

@@ -1,0 +1,28 @@
+[package]
+name = "__PROJECT_NAME__"
+version = "0.1.0"
+edition = "2024"
+description = "__PROJECT_DESCRIPTION__"
+license = "PolyForm-Shield-1.0.0"
+repository = "https://github.com/dotbrains/__PROJECT_NAME__"
+
+[[bin]]
+name = "__PROJECT_NAME__"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+dirs = "6"
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"
+tempfile = "3"
+
+[profile.release]
+lto = true
+strip = true
+opt-level = "z"

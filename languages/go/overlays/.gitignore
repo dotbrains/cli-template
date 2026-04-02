@@ -1,0 +1,6 @@
+# Binary
+__PROJECT_NAME__
+dist/
+
+# Coverage
+coverage.out
