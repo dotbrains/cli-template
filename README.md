@@ -1,7 +1,5 @@
 # cli-template — Multi-Language CLI Scaffold
 
-![CLI Template](./shared/assets/og-image.svg)
-
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
 
 ![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go&logoColor=white)
