@@ -6,13 +6,13 @@ import { CodeBlock } from '@/components/CodeBlock';
 export function QuickStartSection() {
   const [installMethod, setInstallMethod] = useState<'go' | 'brew' | 'release'>('go');
 
-  const goExample = `go install github.com/dotbrains/__PROJECT_NAME__@latest`;
+  const goExample = `go install github.com/smeltery/__PROJECT_NAME__@latest`;
 
-  const brewExample = `brew tap dotbrains/tap
+  const brewExample = `brew tap smeltery/tap
 brew install --cask __PROJECT_NAME__`;
 
   const releaseExample = `# macOS Apple Silicon
-gh release download --repo dotbrains/__PROJECT_NAME__ \\
+gh release download --repo smeltery/__PROJECT_NAME__ \\
   --pattern '__PROJECT_NAME___darwin_arm64.tar.gz' --dir /tmp
 tar -xzf /tmp/__PROJECT_NAME___darwin_arm64.tar.gz -C /usr/local/bin`;
 

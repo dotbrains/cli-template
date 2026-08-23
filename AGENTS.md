@@ -13,7 +13,7 @@ Use this repo when the user asks to create a CLI tool, command-line application,
 
 ### Step 1: Read LANGUAGES.md
 
-Read `~/Documents/GitHub/github.com/dotbrains/cli-template/LANGUAGES.md` to decide which language fits best.
+Read `~/Documents/GitHub/github.com/smeltery/cli-template/LANGUAGES.md` to decide which language fits best.
 
 Decision shortcuts:
 - **Performance-critical, simple I/O, single binary needed** → Rust
@@ -24,7 +24,7 @@ Decision shortcuts:
 ### Step 2: Run generate.sh
 
 ```bash
-cd ~/Documents/GitHub/github.com/dotbrains/cli-template
+cd ~/Documents/GitHub/github.com/smeltery/cli-template
 ./generate.sh \
   --lang <go|python|rust> \
   --name <project-name> \
@@ -37,18 +37,18 @@ This creates `output/<project-name>/` with all files scaffolded.
 ### Step 3: Move the project to the user's workspace
 
 ```bash
-mv ~/Documents/GitHub/github.com/dotbrains/cli-template/output/<project-name> \
-   ~/Documents/GitHub/github.com/dotbrains/<project-name>
+mv ~/Documents/GitHub/github.com/smeltery/cli-template/output/<project-name> \
+   ~/Documents/GitHub/github.com/smeltery/<project-name>
 ```
 
 ### Step 4: Initialize and verify
 
 ```bash
-cd ~/Documents/GitHub/github.com/dotbrains/<project-name>
+cd ~/Documents/GitHub/github.com/smeltery/<project-name>
 git init && git add -A && git commit -m "chore: scaffold from cli-template"
 
 # For Go only:
-rm go.mod go.sum && go mod init github.com/dotbrains/<project-name> && go mod tidy
+rm go.mod go.sum && go mod init github.com/smeltery/<project-name> && go mod tidy
 
 # For all:
 make build && make test

@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "__PROJECT_DESCRIPTION__"
 license = "PolyForm-Shield-1.0.0"
-repository = "https://github.com/dotbrains/__PROJECT_NAME__"
+repository = "https://github.com/smeltery/__PROJECT_NAME__"
 
 [[bin]]
 name = "__PROJECT_NAME__"

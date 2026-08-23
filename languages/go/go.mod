@@ -1,4 +1,4 @@
-module github.com/dotbrains/__PROJECT_NAME__
+module github.com/smeltery/__PROJECT_NAME__
 
 go 1.24.0
 

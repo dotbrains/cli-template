@@ -1,6 +1,6 @@
 # CLI Template — AI Agent Instructions
 
-This is a template repository for creating CLI tools under the `dotbrains` org. It supports Go, Python, and Rust via the `generate.sh` scaffold script.
+This is a template repository for creating CLI tools under the `smeltery` org. It supports Go, Python, and Rust via the `generate.sh` scaffold script.
 
 ## Choosing a Language
 
@@ -38,7 +38,7 @@ git init && git add -A && git commit -m "chore: scaffold from cli-template"
 
 ```sh
 rm go.mod go.sum
-go mod init github.com/dotbrains/<project-name>
+go mod init github.com/smeltery/<project-name>
 go mod tidy
 ```{{/go}}
 
@@ -227,13 +227,13 @@ Every project needs an `og-image.svg` (1200×630px) for social sharing and the R
 
 {{#go}}- Version injected via ldflags: `-X main.version={{.Version}}`.
 - GoReleaser builds for darwin+linux × amd64+arm64.
-- Homebrew cask published to `dotbrains/homebrew-tap`.
+- Homebrew cask published to `smeltery/homebrew-tap`.
 - macOS quarantine removed via post-install hook.
 - Changelog excludes `docs:` and `chore:` commits.{{/go}}
 {{#python}}- Version defined in `src/__PROJECT_NAME__/__init__.py` as `__version__`.
 - GitHub Actions builds Python packages on tag push.
 - Published to PyPI via trusted publishing.
-- Homebrew cask published to `dotbrains/homebrew-tap`.
+- Homebrew cask published to `smeltery/homebrew-tap`.
 - Changelog excludes `docs:` and `chore:` commits.{{/python}}
 {{#rust}}- Version from `CARGO_PKG_VERSION` with optional `VERSION` env override.
 - cargo-dist for cross-platform builds (darwin+linux × amd64+arm64).

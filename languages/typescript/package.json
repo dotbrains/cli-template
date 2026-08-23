@@ -5,7 +5,7 @@
   "license": "PolyForm-Shield-1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dotbrains/__PROJECT_NAME__.git"
+    "url": "https://github.com/smeltery/__PROJECT_NAME__.git"
   },
   "type": "module",
   "bin": {

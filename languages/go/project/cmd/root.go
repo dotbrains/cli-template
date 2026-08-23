@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dotbrains/__PROJECT_NAME__/internal/config"
+	"github.com/smeltery/__PROJECT_NAME__/internal/config"
 	"github.com/spf13/cobra"
 )
 

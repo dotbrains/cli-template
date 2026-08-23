@@ -34,7 +34,7 @@ export function HeroSection({ onLearnMore }: HeroSectionProps) {
               <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
               Get Started
             </a>
-            <a href="https://github.com/dotbrains/__PROJECT_NAME__" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-dark-gray hover:bg-dark-slate text-cream px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg border border-accent-primary hover:border-accent-secondary transition-all">
+            <a href="https://github.com/smeltery/__PROJECT_NAME__" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-dark-gray hover:bg-dark-slate text-cream px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg border border-accent-primary hover:border-accent-secondary transition-all">
               <Github className="w-4 h-4 sm:w-5 sm:h-5" />
               View on GitHub
             </a>

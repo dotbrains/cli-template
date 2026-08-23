@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '__PROJECT_NAME__ — __PROJECT_DESCRIPTION__',
     description: '__PROJECT_DESCRIPTION_LONG__',
-    url: 'https://__PROJECT_NAME__.dotbrains.io',
+    url: 'https://__PROJECT_NAME__.smeltery.io',
     siteName: '__PROJECT_NAME__',
     images: [
       {

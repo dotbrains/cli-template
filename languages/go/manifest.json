@@ -4,7 +4,7 @@
   "min_version": "1.24",
   "framework": "Cobra",
   "framework_url": "https://github.com/spf13/cobra",
-  "install_cmd": "go install github.com/dotbrains/__PROJECT_NAME__@latest",
+  "install_cmd": "go install github.com/smeltery/__PROJECT_NAME__@latest",
   "build_cmd": "go build -o __PROJECT_NAME__ .",
   "test_cmd": "go test -race ./...",
   "lint_cmd": "golangci-lint run",

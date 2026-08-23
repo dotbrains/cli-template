@@ -9,11 +9,11 @@ builds:
 
 homebrew_casks:
   - repository:
-      owner: dotbrains
+      owner: smeltery
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     name: __PROJECT_NAME__
-    homepage: https://github.com/dotbrains/__PROJECT_NAME__
+    homepage: https://github.com/smeltery/__PROJECT_NAME__
     description: "__PROJECT_DESCRIPTION__"
     license: "PolyForm Shield 1.0.0"
     binaries: [__PROJECT_NAME__]

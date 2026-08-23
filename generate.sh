@@ -212,7 +212,7 @@ echo ""
 echo "Next steps:"
 echo "  cd $OUTPUT"
 if [[ "$LANG" == "go" ]]; then
-    echo "  rm go.mod go.sum && go mod init github.com/dotbrains/$NAME && go mod tidy"
+    echo "  rm go.mod go.sum && go mod init github.com/smeltery/$NAME && go mod tidy"
 fi
 echo "  make build"
 echo "  make test"

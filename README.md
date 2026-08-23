@@ -17,7 +17,7 @@ One repo, four languages. Tell an agent what CLI you need — it picks the best 
 
 ```sh
 # Clone the template
-git clone https://github.com/dotbrains/cli-template.git
+git clone https://github.com/smeltery/cli-template.git
 cd cli-template
 
 # Scaffold a Go project
