@@ -81,6 +81,11 @@ This guide helps AI agents choose the best language for a new CLI project. Read 
 - Tools that need to be embedded or called frequently
 - Anything where "fast and correct" matters more than "fast to write"
 
+Generated Rust projects use [mr boxington](https://mr-boxington.jdx.dev) (`mbx`) as a
+drop-in front for `cargo build` / `test` / `clippy` (shared cache across worktrees and
+CI). Install with `cargo install mbx --locked` or via mise as `mr-boxington`. Keep
+`cargo fmt` and `cargo dist` as plain cargo.
+
 **Avoid Rust when:**
 - Development speed is more important than runtime speed
 - The team isn't comfortable with Rust's ownership model
@@ -152,10 +157,10 @@ Default → Go (best balance of productivity and performance)
 |---|---|---|---|---|
 | CLI framework | Cobra | Click | Clap | Commander |
 | Config format | YAML (gopkg.in/yaml.v3) | YAML (PyYAML) | YAML (serde_yaml) | YAML (js-yaml) |
-| Testing | `go test` | pytest | `cargo test` | Vitest |
-| Linting | golangci-lint | ruff | clippy | Biome |
+| Testing | `go test` | pytest | `mbx test` | Vitest |
+| Linting | golangci-lint | ruff | `mbx clippy` | Biome |
 | Type checking | Built-in | mypy | Built-in (strict) | `tsc` (strict) |
-| Build system | `go build` | `python -m build` | `cargo build` | `tsc` |
+| Build system | `go build` | `python -m build` | `mbx build` | `tsc` |
 | Package registry | pkg.go.dev | PyPI | crates.io | npm |
 | Cross-compilation | `GOOS`/`GOARCH` | PyInstaller | `cargo-dist` | `pkg`/`nexe` |
 | Version injection | ldflags | `__version__` variable | `CARGO_PKG_VERSION` | `package.json` version |

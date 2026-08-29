@@ -4,20 +4,20 @@ VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 .PHONY: build test lint install clean cover vet
 
 build:
-	VERSION=$(VERSION) cargo build --release
+	VERSION=$(VERSION) mbx build --release
 
 install:
 	VERSION=$(VERSION) cargo install --path .
 
 test:
-	cargo test
-	cargo test --doc
+	mbx test
+	mbx test --doc
 
 vet:
-	cargo check
+	mbx check
 
 lint:
-	cargo clippy -- -D warnings
+	mbx clippy -- -D warnings
 
 clean:
 	cargo clean
